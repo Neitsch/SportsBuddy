@@ -3,9 +3,21 @@
 ?>
 </div>
   <div class="banner">
-    <img class="banner-bg" src="static/img/lebron.jpg" alt="" />
+    
     <div class="banner-content">
-      Connect and play sport's with your new buddies with SportsBuddy.<br />
+      <div class="banner-content-header">Find a sports bud and get playing</div>
+      Some recent events and sessions:
+      <div class="teaser-list-events">
+      <?php
+      $m = new MongoClient();
+        $val = $m->sports->events->find();
+        foreach($val as $doc) {
+          echo "<div>".$doc['sport'];
+          echo " by ".$m->sports->users->findOne(array("id" => $doc['user_id']))['name'];
+          echo "</div>";
+        }
+      ?>
+    </div>
       <?php
         session_start();
         require_once __DIR__ . '/../vendor/autoload.php';
@@ -21,11 +33,10 @@
         $permissions = ['email']; // Optional permissions
         $loginUrl = $helper->getLoginUrl('http://'.$_SERVER['HTTP_HOST'].'/SportsBuddy/fb-callback.php', $permissions);
 
-        echo '<a href="' . htmlspecialchars($loginUrl) . '"><img src="facebook-login-button.png"></img></a>';
+        echo '<a class="facebook-loginbtn" href="' . htmlspecialchars($loginUrl) . '"><img src="static/img/facebook55.png" /> Login with facebook</a>';
       ?>
     </div>
   </div>
-
 <div class="parent-elemntsofsb">
   <div class="elemntsofsb">
     <img src="static/img/event.png" alt="" />
