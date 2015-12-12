@@ -1,4 +1,10 @@
+<html><head>
+  <script src="https://js.pusher.com/3.0/pusher.min.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+</head>
+<body>
 <?php
+require_once 'event_render.php';
 ini_set('display_errors', 1);
 session_start();
 require 'vendor/autoload.php'; // include Composer goodies
@@ -27,11 +33,12 @@ echo "<br><input type='submit'>";
 echo "</form>";
 
 $val = $m->sports->events->find();
-echo "<ul>";
+echo "<ul id='events'>";
 foreach($val as $doc) {
-  echo "<li>".$doc['sport'];
-  echo " by ".$m->sports->users->findOne(array("id" => $doc['user_id']))['name'];
-  echo "</li>";
+  echo render_event($doc);
+  //echo "<li>".$doc['sport'];
+  //echo " by ".$m->sports->users->findOne(array("id" => $doc['user_id']))['name'];
+  //echo "</li>";
 }
 echo "</ul>";
 //$col->update($document);
@@ -40,3 +47,21 @@ echo "</ul>";
 
 //$result = $collection->insertOne( [ 'name' => 'Hinterland', 'brewery' => 'BrewDog' ] );
 ?>
+  <script>
+    // Enable pusher logging - don't include this in production
+    Pusher.log = function(message) {
+      if (window.console && window.console.log) {
+        window.console.log(message);
+      }
+    };
+
+    var pusher = new Pusher('b227f5df488b51be2735', {
+      encrypted: true
+    });
+    var channel = pusher.subscribe('events_channel');
+    channel.bind('my_event', function(data) {
+	$('#events').append(data);
+    });
+  </script>
+</body>
+</html>
