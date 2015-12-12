@@ -1,15 +1,10 @@
 <?php
 session_start();
-foreach ($_COOKIE as $k=>$v) {
-    if(strpos($k, "FBRLH_")!==FALSE) {
-        $_SESSION[$k]=$v;
-    }
-}
 require_once __DIR__ . '/vendor/autoload.php';
 $fb = new Facebook\Facebook([
   'app_id' => '1666203576993752',
   'app_secret' => '08bd94f8c9633e0c13d93b1db60706f5',
-  'default_graph_version' => 'v2.4',
+  'default_graph_version' => 'v2.5',
   'default_access_token' => 'APP-ID|APP-SECRET'
   ]);
 
