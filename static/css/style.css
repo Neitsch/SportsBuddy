@@ -20,7 +20,7 @@ body {
 /*
 ------------------------------------------------------ */
 .banner {
-    //background-image: url(../img/lebron.jpg);
+    background: linear-gradient(to right, #415CBF 0, #39DDD5 100%);
     display: block;
     width: 100%;
     height: 500px;
@@ -39,8 +39,12 @@ body {
   position: absolute;
   top: 20px;
   color: #fff;
-  font-size: 20px;
-  left: 20px;
+  text-align: center;
+  width: 100%;
+  padding: 50px;
+}
+.banner-content .banner-content-header {
+  font-size: 40px;
 }
 .parent-elemntsofsb {
   background-color: #fff;
@@ -56,4 +60,18 @@ body {
 .parent-elemntsofsb .elemntsofsb .elemntsofsb-caption {
   padding: 20px;
   font-size: 24px;
+}
+a.facebook-loginbtn {
+    padding: 10px 20px;
+    color: #fff;
+    border-radius: 5px;
+    border: 1px solid;
+    font-size: 16px;
+    margin: 20px 0px;
+    display: inline-block;
+}
+a.facebook-loginbtn:hover {
+  color: #fff;
+  text-decoration: none;
+  border-color: #3b5998;  
 }
