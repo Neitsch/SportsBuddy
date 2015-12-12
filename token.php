@@ -13,16 +13,15 @@ $response = $fb->get('/me?fields=id,name', $_SESSION['fb_access_token']);
 echo "Hello, ".$response->getGraphUser()['name'];
 
 $m = new MongoClient();
-$db = $m->sports;
-$col = $db->users;
-$cursor = $col->find();
-foreach($cursor as $document) {
- var_dump($document);
-}
 $document = array( "id" => $response->getGraphUser()['id'], "name" => $response->getGraphUser()['name'] );
-$col->update(array("id" => $response->getGraphUser()['id']), $document, array("upsert" => true));
+$m->sports->users->update(array("id" => $response->getGraphUser()['id']), $document, array("upsert" => true));
+$val = $m->sports->sport->find();
+echo "<select>";
+foreach($val as $doc) {
+  echo "<option value=".$doc['internal'].">".$doc['name']."</option>";
+}
+echo "</select>";
 //$col->update($document);
-echo "done";
 //$manager = new MongoDB\Driver\Manager("mongodb://localhost:27017");
 //$collection = new MongoDB\Collection($manager, "demo.beers");
 
