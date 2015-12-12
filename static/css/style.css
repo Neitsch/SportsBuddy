@@ -1,0 +1,21 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+	color: #000;
+  background-color: #E8E8E8;
+	margin: 0px;
+  -webkit-font-smoothing: antialiased;
+}
+/* General
+------------------------------------------------------ */
+.clear {
+	clear: both;
+}
+.fl {
+	float: left;
+}
+.fr {
+	float: right;
+}
+/* 
+------------------------------------------------------ */
