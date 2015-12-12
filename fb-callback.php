@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL);
 session_start();
 require_once __DIR__ . '/vendor/autoload.php';
 $fb = new Facebook\Facebook([
@@ -39,7 +40,6 @@ if (! isset($accessToken)) {
 // Logged in
 echo '<h3>Access Token</h3>';
 var_dump($accessToken->getValue());
-
 // The OAuth 2.0 client handler helps us manage access tokens
 $oAuth2Client = $fb->getOAuth2Client();
 
@@ -47,9 +47,9 @@ $oAuth2Client = $fb->getOAuth2Client();
 $tokenMetadata = $oAuth2Client->debugToken($accessToken);
 echo '<h3>Metadata</h3>';
 var_dump($tokenMetadata);
-
+$_SESSION['fb_access_token'] = (string) $accessToken;
 // Validation (these will throw FacebookSDKException's when they fail)
-$tokenMetadata->validateAppId($config['app_id']);
+$tokenMetadata->validateAppId('1666203576993752');
 // If you know the user ID this access token belongs to, you can validate it here
 //$tokenMetadata->validateUserId('123');
 $tokenMetadata->validateExpiration();
@@ -66,9 +66,7 @@ if (! $accessToken->isLongLived()) {
   echo '<h3>Long-lived</h3>';
   var_dump($accessToken->getValue());
 }
-
 $_SESSION['fb_access_token'] = (string) $accessToken;
-
 // User is logged in with a long-lived access token.
 // You can redirect them to a members-only page.
 //header('Location: https://example.com/members.php');
