@@ -116,3 +116,7 @@ a.viewmore {
   color:#ccc;
   text-decoration:underline;
 }
+.facebook-profilepic {
+  float: left;
+  width: 50px;
+}
