@@ -18,8 +18,6 @@ $_SESSION['fb_user_id'] = $response->getGraphUser()['id'];
 echo "Hello, ".$response->getGraphUser()['name'];
 
 $m = new MongoClient();
-$document = array( "id" => $response->getGraphUser()['id'], "name" => $response->getGraphUser()['name'] );
-$m->sports->users->update(array("id" => $response->getGraphUser()['id']), $document, array("upsert" => true));
 $val = $m->sports->sport->find();
 echo "<form action='postActivity.php' method='post'><br>What? <select name='sport'>";
 foreach($val as $doc) {
