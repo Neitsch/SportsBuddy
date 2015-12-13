@@ -52,5 +52,4 @@
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
-  </body>
-</html>
+
