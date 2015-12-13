@@ -9,12 +9,22 @@ print_r($_POST);
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<!-- time picker-->
+<script src="datepicker/js/bootstrap-timepicker.js"></script>
+<link rel="stylesheet" href="datepicker/css/timepicker.css"/>
 
 <script>
     $(function() {
         $( "#datepicker" ).datepicker();
     });
 
+    $(function() {
+        $( "#timepicker1").timepicker();
+    });
+
+    $(function() {
+        $( "#timepicker2").timepicker();
+    });
 </script>
 
     <div class="container">
@@ -27,7 +37,7 @@ print_r($_POST);
                         <input type="text"class="form-control" name="venue" placeholder="The location" id="venue">
                     </div>
                     <div class="form-group">
-                        <label for="sports">Choose a sports:</label>
+                        <label for="sports">Choose a sport:</label>
 
                         <select id="sports" class="form-control" name="sports">
                             <?php Form::selection();?>
@@ -35,9 +45,9 @@ print_r($_POST);
                     </div>
                     <div class="form-group">
                         <h2>Choose your skill level:</h2>
-                        <label class="radio-inline"><input checked="checked" type="radio" name="amateur">Amateur</label>
-                        <label class="radio-inline"><input type="radio" name="standard">Standard</label>
-                        <label class="radio-inline"><input type="radio" name="pro">Pro</label>
+                        <label class="radio-inline"><input checked="checked" type="radio" name="level" value="amateur">Amateur</label>
+                        <label class="radio-inline"><input type="radio" name="level" value="standard">Standard</label>
+                        <label class="radio-inline"><input type="radio" name="level" value="pro">Pro</label>
                     </div>
                     <!-- Date picker -->
                     <table>
@@ -45,22 +55,29 @@ print_r($_POST);
                             <td>
                                 <div class="form-group">
                                     <label for="datepicker">Choose the date:</label>
-                                    <input type="text"class="form-control" id="datepicker">
+                                    <input type="text" name="date" class="form-control" id="datepicker">
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <td>
                                 <div class="form-group">
-                                    <label for="hours">Hour:</label>
-                                    <select id="hours" class="form-control" name="hours">
-                                        <?php Clock::showHour();?>
-                                    </select>
+                                    <label for="timepicker1">Start:</label>
+                                    <div class="input-group bootstrap-timepicker timepicker">
+                                        <input id="timepicker1"  name="start" type="text" class="form-control input-small">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                                    </div>
                                 </div>
                             </td>
-                        </tr>
-                        <tr>
-
+                            <td>
+                                <div class="form-group">
+                                    <label for="timepicker2" style="margin-left: 20px">End:</label>
+                                    <div style="margin-left: 20px" class="input-group bootstrap-timepicker timepicker">
+                                        <input id="timepicker2" name="end" type="text" class="form-control input-small">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                                    </div>
+                                </div>
+                            </td>
                         </tr>
                     </table>
                     <div class="form-group">
@@ -76,11 +93,14 @@ print_r($_POST);
     var form = document.getElementsByTagName("form")[0];
 
     form.addEventListener("submit", function(e){
-        var username = document.getElementById("username");
         var venue = document.getElementById("venue");
         var sports = document.getElementById("sports");
+        var datepicker = document.getElementById("datepicker");
+        var level = document.getElementById("level");
+        var start = document.getElementById("timepicker1");
+        var end = document.getElementById("timepicker2");
 
-        var arr = [username, venue];
+        var arr = [venue, datepicker, start, end];
         resetColor(arr);
 
         if(validationInputs(arr) && validationDropDownMenu(sports)){
