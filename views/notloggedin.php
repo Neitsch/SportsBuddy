@@ -1,5 +1,6 @@
 <?php
   include('header.php');
+  require_once 'event_render.php';
 ?>
 </div>
   <div class="banner">
@@ -7,18 +8,19 @@
     <div class="banner-content">
       <div class="banner-content-header">Find a sports bud and get playing</div>
       Some recent events and sessions:
-      <div class="teaser-list-events">
+      <div id="home-events">
       <?php
+	require_once __DIR__ . '/../event_render.php';
       $m = new MongoClient();
-        $val = $m->sports->events->find();
-        foreach($val as $doc) {
-          
-          echo "<div>".$doc['sport'];
-          echo " by ".$m->sports->users->findOne(array("id" => $doc['user_id']))['name'];
-          echo "</div>";
+
+        $val = $m->sports->events->find()->limit(3);
+	      while($val->hasNext()) {
+		      $val->next();
+		      echo render_event($val->current());
         }
       ?>
     </div>
+    <a class="viewmore" href="viewevents.php">view more &raquo;</a><br />
       <?php
         session_start();
         require_once __DIR__ . '/../vendor/autoload.php';
@@ -39,6 +41,7 @@
     </div>
   </div>
 <div class="parent-elemntsofsb">
+  <div class="elemntsofsb-wrapper">
   <div class="elemntsofsb">
     <img src="static/img/event.png" alt="" />
     <div class="elemntsofsb-caption">Organise sporting events and ensure you have enough on your team</div>
@@ -55,10 +58,11 @@
     <img src="static/img/celebration.png" alt="" />
     <div class="elemntsofsb-caption">Make friends and healthy relationships</div>
   </div>
-  <div class="clear"></div>
+    <div class="clear"></div>
+</div>
 </div>
 <div class="container">
-<center>
+<center style="padding-bottom:20px;">
 <h1 style="margin:40px 0 30px 0">What is SportsBuddy?</h1>
 <h4>SportsBuddy allows you to connect with people whom share the same passion as you for sports.</h4>
   <div>Connect with other active people on your campus or neighbourhood.</div>
@@ -66,6 +70,21 @@
   <div>Learn new sports in a new way and fun way.</div>
   <div>Organise your events easier and recruit new players easily.</div>
 </center>
+<script type="text/javascript">
+  // Enable pusher logging - don't include this in production
+  Pusher.log = function(message) {
+    if (window.console && window.console.log) {
+      window.console.log(message);
+    }
+  };
+  var pusher = new Pusher('b227f5df488b51be2735', {
+    encrypted: true
+  });
+  var channel = pusher.subscribe('events_channel');
+  channel.bind('my_event', function(data) {
+$('#home-events').append(data);
+  });
+</script>
 <?php
   include('footer.php');
 ?>

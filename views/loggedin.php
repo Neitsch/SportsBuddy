@@ -18,8 +18,6 @@ $_SESSION['fb_user_id'] = $response->getGraphUser()['id'];
 echo "Hello, ".$response->getGraphUser()['name'];
 
 $m = new MongoClient();
-$document = array( "id" => $response->getGraphUser()['id'], "name" => $response->getGraphUser()['name'] );
-$m->sports->users->update(array("id" => $response->getGraphUser()['id']), $document, array("upsert" => true));
 $val = $m->sports->sport->find();
 echo "<form action='postActivity.php' method='post'><br>What? <select name='sport'>";
 foreach($val as $doc) {
@@ -30,7 +28,7 @@ echo "<br>When?";
 echo "<br><input type='submit'>";
 echo "</form>";
 
-$val = $m->sports->events->find();
+$val = $m->sports->events->find(array("_id" => array('$nin' => $m->sports->users->findOne(array("id" => $_SESSION['fb_user_id']))['events'])));
 echo "<ul id='events'>";
 foreach($val as $doc) {
   echo render_event($doc);
@@ -45,7 +43,7 @@ echo "</ul>";
 
 //$result = $collection->insertOne( [ 'name' => 'Hinterland', 'brewery' => 'BrewDog' ] );
 ?>
-  <script>
+  <script type="text/javascript">
     // Enable pusher logging - don't include this in production
     Pusher.log = function(message) {
       if (window.console && window.console.log) {
