@@ -3,7 +3,7 @@
 ?>
 </div>
   <div class="banner">
-    
+
     <div class="banner-content">
       <div class="banner-content-header">Find a sports bud and get playing</div>
       Some recent events and sessions:
@@ -59,13 +59,11 @@
 <div class="container">
 <center>
 <h1 style="margin:40px 0 30px 0">What is SportsBuddy?</h1>
-SportsBuddy allows you to connect people who share the same passion as you for sports.
-<ul>
-  <li>Connect with other active people on your campus or neighbourhood.</li>
-  <li>Help others achieve their goals and overcome barriers.</li>
-  <li>Learn new sports in a new way and fun way.</li>
-  <li>Organise your events easier and recruit new players easily.</li>
-</ul>
+<h4>SportsBuddy allows you to connect with people whom share the same passion as you for sports.</h4>
+  <div>Connect with other active people on your campus or neighbourhood.</div>
+  <div>Help others achieve their goals and overcome barriers.</div>
+  <div>Learn new sports in a new way and fun way.</div>
+  <div>Organise your events easier and recruit new players easily.</div>
 </center>
 <?php
   include('footer.php');

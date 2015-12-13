@@ -12,6 +12,7 @@
     <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Play' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Sree+Krushnadevaraya' rel='stylesheet' type='text/css'>
+    <script src="https://js.pusher.com/3.0/pusher.min.js"></script>
 
     <title>SportsBuddy</title>
   </head>
