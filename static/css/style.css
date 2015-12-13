@@ -15,8 +15,11 @@ body {
 	float: left;
 }
 .fr {
-	float: right;
+    float: right;
 }
+
+
+
 /*
 ------------------------------------------------------ */
 .banner {
@@ -54,7 +57,7 @@ body {
 .elemntsofsb-wrapper {
   max-width:100%;
   margin:0 auto;
-  width:75%;
+  width:90%;
 }
 .parent-elemntsofsb .elemntsofsb {
   float: left;
