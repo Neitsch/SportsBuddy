@@ -1,6 +1,7 @@
 <?php
 include("views/header.php");
 include("classes/Form.php");
+include("classes/Clock.php");
 
 //debugin
 print_r($_POST);
@@ -8,10 +9,12 @@ print_r($_POST);
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
 <script>
     $(function() {
         $( "#datepicker" ).datepicker();
     });
+
 </script>
 
     <div class="container">
@@ -25,16 +28,16 @@ print_r($_POST);
                     </div>
                     <div class="form-group">
                         <label for="sports">Choose a sports:</label>
-
+                        <?php Form::selection();?>
                         <select id="sports" class="form-control" name="sports">
-                            <?php Form::selection();?>
+
                         </select>
                     </div>
                     <div class="form-group">
-                        <h2>Choose your </h2>
-                        <label class="radio-inline"><input type="radio" name="beginer">Beginer</label>
-                        <label class="radio-inline"><input type="radio" name="optradio">Amateur</label>
-                        <label class="radio-inline"><input type="radio" name="optradio">Pro</label>
+                        <h2>Choose your skill level:</h2>
+                        <label class="radio-inline"><input checked="checked" type="radio" name="amateur">Amateur</label>
+                        <label class="radio-inline"><input type="radio" name="standard">Standard</label>
+                        <label class="radio-inline"><input type="radio" name="pro">Pro</label>
                     </div>
                     <!-- Date picker -->
                     <table>
@@ -47,13 +50,22 @@ print_r($_POST);
                             </td>
                         </tr>
                         <tr>
+                            <td>
+                                <div class="form-group">
+                                    <label for="hours">Hour:</label>
+                                    <select id="hours" class="form-control" name="hours">
+                                        <?php Clock::showHour();?>
+                                    </select>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
 
                         </tr>
                     </table>
                     <div class="form-group">
                         <input type="submit" name="submit" value="submit" class=" btn btn-default">
                     </div>
-
                 </form>
             </div>
         </div>

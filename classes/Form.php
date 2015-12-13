@@ -2,20 +2,20 @@
 
 class Form{
 
+
     public static $sports = [["squash", "Squash"], ["tennis", "Tennis"], ["jogging", "Jogging"], ["table_tennis", "Table tennis"], ["paddington", "Paddingon"], ["gym", "Gym"]];
 
     public static function selection()
     {
-        $elementsNumber = count(self::$sports);
+        $elements = DB::mongoDB();
 
         echo "<option selected='selected' value="."choose".">";
         echo "Choose";
         echo "</option>";
 
-        for ($i = 0; $i < $elementsNumber; $i++) {
-            $pair = self::$sports[$i];
-            echo "<option value=".$pair[0].">";
-            echo $pair[1];
+        foreach($elements as $elem) {
+            echo "<option value=".$elem['internal'].">";
+            echo $elem['name'];
             echo "</option>";
         }
     }

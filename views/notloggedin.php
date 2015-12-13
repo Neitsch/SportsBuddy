@@ -12,6 +12,7 @@
       $m = new MongoClient();
         $val = $m->sports->events->find();
         foreach($val as $doc) {
+          
           echo "<div>".$doc['sport'];
           echo " by ".$m->sports->users->findOne(array("id" => $doc['user_id']))['name'];
           echo "</div>";
