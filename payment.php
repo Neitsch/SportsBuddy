@@ -1,9 +1,12 @@
 <form id="checkout" method="post" action="accept.php">
   <div id="payment-form"></div>
-              <?php foreach( $_POST as $key => $val ): ?>
+              <?php foreach( $_GET as $key => $val ): ?>
                 <input type="hidden" name="<?= htmlspecialchars($key, ENT_COMPAT, 'UTF-8') ?>" value="<?= htmlspecialchars($val, ENT_COMPAT, 'UTF-8') ?>">
             <?php endforeach; ?>
-  echo "<input type='submit' value='Pay $10'>";
+  <?php
+$cost = new MongoClient()->sports->events->findOne(array("_id" => new MongoId($_GET['id'])));
+echo "<input type='submit' value='Pay ".$cost."'>";
+?>
 </form>
 <script src="https://js.braintreegateway.com/v2/braintree.js"></script>
 <script>

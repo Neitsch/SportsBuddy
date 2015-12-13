@@ -3,7 +3,7 @@
 		$m = new MongoClient();
 		$val = "<div class='individual-events' style='color:black'>";
                 if($event['user_id'] != $_SESSION['fb_user_id']) {
-		  $val .= "<a href='accept.php?id=".((string)$event['_id'])."'>";
+		  $val .= "<a href='payment.php?id=".((string)$event['_id'])."'>";
 		}
 		$val .= "<img class='img-rounded' src=\"http://graph.facebook.com/v2.5/".$event['user_id']."/picture\"></img>";
 		$val .= $m->sports->users->findOne(array("id" => $event['user_id']))['name'];
