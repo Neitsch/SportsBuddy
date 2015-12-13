@@ -2,6 +2,7 @@
   "require" : {
     "facebook/php-sdk-v4" : "~5.0",
     "pusher/pusher-php-server": "^2.2",
-    "messagebird/php-rest-api": "^1.2"
+    "messagebird/php-rest-api": "^1.2",
+    "everyman/neo4jphp": "dev-master"
   }
 }
