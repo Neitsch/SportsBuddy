@@ -2,9 +2,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-
-
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap -->
     <link href="static/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -43,10 +42,10 @@
             <li class="active"><a href="index.php"><img src="static/img/home7.png" alt="" /> Home <span class="sr-only">(current)</span></a></li>
             <li><a href="about.php"><img src="static/img/info31.png" alt="" /> What is SportsBuddy?</a></li>
             <li><a href="#"><img src="static/img/notifications.png" alt="" /> Notifications</a></li>
-            <li><a href="viewevents"><img src="static/img/table-tennis.png" alt="" /> View events & sessions</a></li>
+            <li><a href="viewevents.php"><img src="static/img/table-tennis.png" alt="" /> View events & sessions</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
 
-<div class="container">
+<div class="container-fluid">
