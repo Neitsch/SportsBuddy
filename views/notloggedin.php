@@ -1,5 +1,6 @@
 <?php
   include('header.php');
+  require_once 'event_render.php';
 ?>
 </div>
   <div class="banner">
@@ -7,17 +8,18 @@
     <div class="banner-content">
       <div class="banner-content-header">Find a sports bud and get playing</div>
       Some recent events and sessions:
-      <div class="teaser-list-events">
       <?php
 	require_once __DIR__ . '/../event_render.php';
       $m = new MongoClient();
-        $val = $m->sports->events->find()->limit(3);
-	while($val->hasNext()) {
-		$val->next();
-		echo render_event($val->current());
-        }
-      ?>
-    </div>
+<<<<<<< HEAD
+      $val = $m->sports->events->find();
+      echo "<div id='home-events'>";
+      foreach($val as $doc) {
+        echo render_event($doc);
+      }
+      echo "</div>";
+       ?>
+       <a class="viewmore" href="viewevents.php">view more &raquo;</a><br />
       <?php
         session_start();
         require_once __DIR__ . '/../vendor/autoload.php';
@@ -65,6 +67,21 @@
   <div>Learn new sports in a new way and fun way.</div>
   <div>Organise your events easier and recruit new players easily.</div>
 </center>
+<script type="text/javascript">
+  // Enable pusher logging - don't include this in production
+  Pusher.log = function(message) {
+    if (window.console && window.console.log) {
+      window.console.log(message);
+    }
+  };
+  var pusher = new Pusher('b227f5df488b51be2735', {
+    encrypted: true
+  });
+  var channel = pusher.subscribe('events_channel');
+  channel.bind('my_event', function(data) {
+$('#home-events').append(data);
+  });
+</script>
 <?php
   include('footer.php');
 ?>

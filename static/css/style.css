@@ -73,5 +73,25 @@ a.facebook-loginbtn {
 a.facebook-loginbtn:hover {
   color: #fff;
   text-decoration: none;
-  border-color: #3b5998;  
+  border-color: #3b5998;
+}
+#home-events {
+  width100%;
+  text-align:centre;
+}
+#home-events .individual-events {
+  border: 1px solid #ccc;
+  padding: 5px;
+  width: 270px;
+  text-align: left;
+  color: #fff;
+  margin: 0 auto;
+  margin-top: 4px;
+}
+#home-events .individual-events a {
+  color:#fff;
+}
+a.viewmore {
+  color:#ccc;
+  text-decoration:underline;
 }
