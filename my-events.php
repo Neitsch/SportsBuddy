@@ -3,7 +3,13 @@
   $m = new MongoClient();
   $user = $m->sports->users->findOne(array("id" => $_SESSION['fb_user_id']));
   $hosted = $m->sports->events->find(array("user_id" => $_SESSION['fb_user_id']));
-  //$m->sports->users->find(array("events"));
+  foreach($hosted as $event) {
+	$users = $m->sports->users->find(array("events" => $event));
+	while($users->hasNext()) {
+		$users->next();
+		var_dump($users->current());
+	}
+  }
   $evs = $m->sports->events->find(array("_id" => array('$in' => $user['events'])));
   echo "<ul>";
   foreach($evs as $ev) {
