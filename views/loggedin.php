@@ -56,7 +56,8 @@ echo "</ul>";
     });
     var channel = pusher.subscribe('events_channel');
     channel.bind('my_event', function(data) {
-	$('#events').append(data);
+	$('#events').prepend(data);
+        $('#events').last().remove();
     });
   </script>
 <?php
