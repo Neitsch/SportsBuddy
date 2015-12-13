@@ -1,10 +1,8 @@
 <?php
-include("views/header.php");
 include("classes/Form.php");
 include("classes/Clock.php");
 
 //debugin
-print_r($_POST);
 ?>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
@@ -31,7 +29,7 @@ print_r($_POST);
         <div class="row">
             <div class="col-xs-12">
                <h2>FORM</h2>
-                <form action="#"  method="POST">
+                <form method="POST" action="postActivity.php">
                     <div class="form-group">
                         <label for="venue">Venue</label>
                         <input type="text"class="form-control" name="venue" placeholder="The location" id="venue">
@@ -39,7 +37,7 @@ print_r($_POST);
                     <div class="form-group">
                         <label for="sports">Choose a sport:</label>
 
-                        <select id="sports" class="form-control" name="sports">
+                        <select id="sport" class="form-control" name="sports">
                             <?php Form::selection();?>
                         </select>
                     </div>
@@ -144,4 +142,3 @@ print_r($_POST);
 
 </script>
 
-<?php include("views/footer.php"); ?>

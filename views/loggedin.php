@@ -13,20 +13,19 @@ $fb = new Facebook\Facebook([
   'default_graph_version' => 'v2.5',
   'default_access_token' => 'APP-ID|APP-SECRET'
   ]);
-$response = $fb->get('/me?fields=id,name', $_SESSION['fb_access_token']);
-$_SESSION['fb_user_id'] = $response->getGraphUser()['id'];
-echo "Hello, ".$response->getGraphUser()['name'];
+echo "Hello, ".$_SESSION['fb_user_name'];
 
 $m = new MongoClient();
-$val = $m->sports->sport->find();
-echo "<form action='postActivity.php' method='post'><br>What? <select name='sport'>";
-foreach($val as $doc) {
-  echo "<option value=".$doc['internal'].">".$doc['name']."</option>";
-}
-echo "</select>";
-echo "<br>When?";
-echo "<br><input type='submit'>";
-echo "</form>";
+include(__DIR__ . "/../form.php");
+//$val = $m->sports->sport->find();
+//echo "<form action='postActivity.php' method='post'><br>What? <select name='sport'>";
+//foreach($val as $doc) {
+//  echo "<option value=".$doc['internal'].">".$doc['name']."</option>";
+//}
+//echo "</select>";
+//echo "<br>When?";
+//echo "<br><input type='submit'>";
+//echo "</form>";
 
 $val = $m->sports->events->find(array("_id" => array('$nin' => $m->sports->users->findOne(array("id" => $_SESSION['fb_user_id']))['events'])));
 echo "<ul id='events'>";
@@ -55,10 +54,14 @@ echo "</ul>";
       encrypted: true
     });
     var channel = pusher.subscribe('events_channel');
-    channel.bind('my_event', function(data) {
-	$('#events').prepend(data);
-        $('#events').last().remove();
-    });
+  var channel = pusher.subscribe('events_channel');
+  channel.bind('my_event', function(data) {
+    $('#events').prepend(data);
+    $('#events .individual-events').first().show(function() {
+      $('#events .individual-events').last().hide(function() {$('#home-events .individual-events').last().remove();});
+});
+  });
+    $('#events .individual-events').show();
   </script>
 <?php
   include('footer.php');
