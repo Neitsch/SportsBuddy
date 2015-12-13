@@ -51,10 +51,14 @@ body {
   padding: 40px 0;
   margin-top: -20px;
 }
+.elemntsofsb-wrapper {
+  width:1200px;
+  margin:0 auto;
+}
 .parent-elemntsofsb .elemntsofsb {
   float: left;
-  width: 21em;
-  height: 270px;
+  width: 300px;
+  height: 300px;
   text-align: center;
 }
 .parent-elemntsofsb .elemntsofsb .elemntsofsb-caption {
@@ -87,6 +91,7 @@ a.facebook-loginbtn:hover {
   color: #fff;
   margin: 0 auto;
   margin-top: 4px;
+  border-radius: 4px;
 }
 #home-events .individual-events a {
   color:#fff;

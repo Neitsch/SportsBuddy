@@ -39,13 +39,13 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#"><img src="static/img/house204.png" alt="" /> Home <span class="sr-only">(current)</span></a></li>
-            <li><a href="#"><img src="static/img/information3.png" alt="" /> What is SportsBuddy?</a></li>
-            <li><a href="#"><img src="static/img/bell74.png" alt="" /> Notifications</a></li>
+            <li class="active"><a href="index.php"><img src="static/img/home7.png" alt="" /> Home <span class="sr-only">(current)</span></a></li>
+            <li><a href="about.php"><img src="static/img/info31.png" alt="" /> What is SportsBuddy?</a></li>
+            <li><a href="#"><img src="static/img/notifications.png" alt="" /> Notifications</a></li>
+            <li><a href="viewevents"><img src="static/img/table-tennis.png" alt="" /> View events & sessions</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
 
 <div class="container">
-

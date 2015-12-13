@@ -40,6 +40,7 @@
     </div>
   </div>
 <div class="parent-elemntsofsb">
+  <div class="elemntsofsb-wrapper">
   <div class="elemntsofsb">
     <img src="static/img/event.png" alt="" />
     <div class="elemntsofsb-caption">Organise sporting events and ensure you have enough on your team</div>
@@ -56,7 +57,9 @@
     <img src="static/img/celebration.png" alt="" />
     <div class="elemntsofsb-caption">Make friends and healthy relationships</div>
   </div>
-  <div class="clear"></div>
+    <div class="clear"></div>
+</div>
+
 </div>
 <div class="container">
 <center>
