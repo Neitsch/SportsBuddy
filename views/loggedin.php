@@ -54,10 +54,14 @@ echo "</ul>";
       encrypted: true
     });
     var channel = pusher.subscribe('events_channel');
-    channel.bind('my_event', function(data) {
-	$('#events').prepend(data);
-        $('#events').last().remove();
-    });
+  var channel = pusher.subscribe('events_channel');
+  channel.bind('my_event', function(data) {
+    $('#events').prepend(data);
+    $('#events .individual-events').first().show(function() {
+      $('#events .individual-events').last().hide(function() {$('#home-events .individual-events').last().remove();});
+});
+  });
+    $('#events .individual-events').show();
   </script>
 <?php
   include('footer.php');
