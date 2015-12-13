@@ -2,9 +2,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <!-- Date picker-->
-    <link rel="stylesheet" href="../datepicker/css/datepicker.css">
-    <link rel="stylesheet" href="../datepicker/js/bootstrap-datepicker.js">
+
 
     <meta charset="utf-8">
     <!-- Bootstrap -->

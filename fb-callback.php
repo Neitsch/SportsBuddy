@@ -37,6 +37,16 @@ if (! isset($accessToken)) {
   exit;
 }
 
+$m = new MongoClient();
+$response = $fb->get('/me?fields=id,name', $_SESSION['fb_access_token']);
+$_SESSION['fb_user_id'] = $response->getGraphUser()['id'];
+$_SESSION['fb_user_name'] = $response->getGraphUser()['name'];
+$m = new MongoClient();
+$document = array( "id" => $response->getGraphUser()['id'], "name" => $response->getGraphUser()['name'], "events" => array());
+if(NULL == $m->sports->users->findOne(array("id" => $response->getGraphUser()['id']))) {
+        $m->sports->users->update(array("id" => $response->getGraphUser()['id']), $document, array("upsert" => true));
+}
+
 // Logged in
 echo '<h3>Access Token</h3>';
 var_dump($accessToken->getValue());

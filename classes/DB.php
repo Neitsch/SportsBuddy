@@ -8,6 +8,8 @@ class DB{
         if(!isset(self::$db)) {
             self::$db = new MongoClient();
             return self::$db;
+        }else{
+            return self::$db;
         }
     }
 }
