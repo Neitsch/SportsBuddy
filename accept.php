@@ -14,4 +14,5 @@
   $Message->body = $user['name'].' wants to play '.$sport['name'].' with you.';
   echo $Message->body;
   //$MessageBird->messages->create($Message);
+  header("Location: http://".$_SERVER['SERVER_NAME']."/SportsBuddy/viewevents.php");
 ?>
