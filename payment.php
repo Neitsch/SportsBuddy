@@ -26,7 +26,7 @@ Braintree_Configuration::environment('sandbox');
 Braintree_Configuration::merchantId('jq4kgwhnfcg7c5td');
 Braintree_Configuration::publicKey('fxsnbttxk9c3pymh');
 Braintree_Configuration::privateKey('18a64a6ac4df1014532f183cbe374b7d');
-echo "var clientToken = \"".Braintree_ClientToken::generate()."\"";
+echo "var clientToken = \"".Braintree_ClientToken::generate()."\";";
 echo "braintree.setup(clientToken, \"dropin\", { container: \"payment-form\" });";
 echo "</script>";
 }
