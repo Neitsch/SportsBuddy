@@ -1,3 +1,4 @@
+<?php require_once __DIR__ . "/../classes/DB.php"; ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -19,7 +20,6 @@
     <script src="https://js.pusher.com/3.0/pusher.min.js"></script>
 
     <title>SportsBuddy</title>
-
   </head>
   <body>
 

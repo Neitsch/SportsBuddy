@@ -12,6 +12,7 @@
       <?php
 	require_once __DIR__ . '/../event_render.php';
       $m = new MongoClient();
+
         $val = $m->sports->events->find()->limit(3);
 	      while($val->hasNext()) {
 		      $val->next();
