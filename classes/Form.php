@@ -8,6 +8,7 @@ class Form{
     public static function selection()
     {
         $elements = DB::mongoDB();
+        $elements = $elements->sports->sport->find();
 
         echo "<option selected='selected' value="."choose".">";
         echo "Choose";
