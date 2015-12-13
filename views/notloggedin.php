@@ -1,4 +1,5 @@
 <?php
+        session_start();
   include('header.php');
   require_once 'event_render.php';
 ?>
@@ -11,9 +12,7 @@
       <div id="home-events">
       <?php
 	require_once __DIR__ . '/../event_render.php';
-      $m = new MongoClient();
-
-        $val = $m->sports->events->find()->limit(3);
+	$val = DB::getEvents(3);
 	      while($val->hasNext()) {
 		      $val->next();
 		      echo render_event($val->current());
@@ -22,7 +21,6 @@
     </div>
     <a class="viewmore" href="viewevents.php">view more &raquo;</a><br />
       <?php
-        session_start();
         require_once __DIR__ . '/../vendor/autoload.php';
         $fb = new Facebook\Facebook([
           'app_id' => '1666203576993752',

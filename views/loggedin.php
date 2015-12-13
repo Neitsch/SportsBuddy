@@ -30,18 +30,18 @@ include('views/newsessionform.php');
 //echo "</form>";
 
 
-$val = $m->sports->events->find(array("_id" => array('$nin' => $m->sports->users->findOne(array("id" => $_SESSION['fb_user_id']))['events'])));
+$val = DB::getEvents(20);
 echo "<ul id='events'>";
-foreach($val as $doc) {
-  echo render_event($doc);
+while($val->hasNext()) {
+  $val->next();
+  echo render_event($val->current());
   //echo "<li>".$doc['sport'];
   //echo " by ".$m->sports->users->findOne(array("id" => $doc['user_id']))['name'];
   //echo "</li>";
 }
 echo "</ul>";
 
-$user = $m->sports->users->findOne(array("id" => $_SESSION['fb_user_id']));
-$evs = $m->sports->events->find(array("_id" => array('$in' => $user['events'])));
+$evs = DB::getMyEvents(10);
 echo "<ul>";
 foreach($evs as $ev) {
   echo "<li>".$m->sports->sport->findOne(array("internal" => $ev['sport']))["name"]." with ".$m->sports->users->findOne(array("id" => $ev['user_id']))['name']."</li>";
