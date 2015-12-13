@@ -16,13 +16,13 @@ $result = Braintree_Transaction::sale([
   $ev = $m->sports->events->findOne(array("_id" => new MongoId($id)));
   $sport = $m->sports->sport->findOne(array("internal" => $ev['sport']));
   $m->sports->users->update(array("_id" => $user['_id']), array('$addToSet' => array("events" => new MongoId($id))));
-  $MessageBird = new \MessageBird\Client('test_FwajaLoWbqkp5ncnbt9sfBLH6');
+  $MessageBird = new \MessageBird\Client('live_lIN8ehBanlzptJEDY9pObvbY7');
   $Message = new \MessageBird\Objects\Message();
   $Message->originator = 'MessageBird';
-  $Message->recipients = array("+4907913650254");
+  $Message->recipients = array($ev['telephone']);
 
-  $Message->body = $user['name'].' wants to play '.$sport['name'].' with you.';
+  $Message->body = $user['name'].' signed up to do '.$sport['name']."!\n Your SportsBuddies";
   echo $Message->body;
-  //$MessageBird->messages->create($Message);
+  $MessageBird->messages->create($Message);
   header("Location: http://".$_SERVER['SERVER_NAME']."/SportsBuddy/viewevents.php");
 ?>
