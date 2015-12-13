@@ -28,9 +28,9 @@ Create Session
           <div class="form-group">
             <label for="sessiondate" class="col-sm-2 control-label">Date and Time</label>
             <div class="col-sm-8">
-              <input name"sessiondate" type="text" class="form-control datepicker" data-provide="datepicker" id="sessiondate" placeholder="Date">
+              <input name="sessiondate" type="text" class="form-control datepicker" data-provide="datepicker" id="sessiondate" placeholder="Date">
               <div class="" style="height:3px; display:block;"></div>
-              <input name"sessiontime" type="text" class="form-control" id="sessiontime" placeholder="14:25">
+              <input name="sessiontime" type="text" class="form-control" id="sessiontime" placeholder="14:25">
             </div>
           </div>
           <div class="form-group">
@@ -78,6 +78,23 @@ Create Session
             <label for="sessiondescription" class="col-sm-2 control-label">Description</label>
             <div class="col-sm-8">
               <textarea id="sessiondescription" class="form-control" rows="3" name="sessiondescription"></textarea>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-8">
+              If this is an event and involves more than two people then please identify the maximum number of people and whether your event has a fee. Otherwise you can leave them blank.
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="eventfee" class="col-sm-2 control-label">Fee (£)</label>
+            <div class="col-sm-8">
+              <input name="eventfee" type="text" class="form-control"  id="eventfee" placeholder="4.56">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="maxpeople" class="col-sm-2 control-label">Max Participants</label>
+            <div class="col-sm-8">
+              <input name="maxpeople" type="text" class="form-control"  id="maxpeople" placeholder="16">
             </div>
           </div>
           <div class="form-group">
