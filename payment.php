@@ -4,7 +4,8 @@
                 <input type="hidden" name="<?= htmlspecialchars($key, ENT_COMPAT, 'UTF-8') ?>" value="<?= htmlspecialchars($val, ENT_COMPAT, 'UTF-8') ?>">
             <?php endforeach; ?>
   <?php
-$cost = new MongoClient()->sports->events->findOne(array("_id" => new MongoId($_GET['id'])));
+require_once __DIR__ . '/vendor/autoload.php';
+$cost = (new MongoClient())->sports->events->findOne(array("_id" => new MongoId($_GET['id'])))['eventfee'] . "£";
 echo "<input type='submit' value='Pay ".$cost."'>";
 ?>
 </form>
@@ -14,7 +15,6 @@ echo "<input type='submit' value='Pay ".$cost."'>";
 // immediately. In a production-ready integration, you will need to
 // generate a client token on your server (see section below).
 <?php 
-require_once __DIR__ . '/vendor/autoload.php';
 Braintree_Configuration::environment('sandbox');
 Braintree_Configuration::merchantId('jq4kgwhnfcg7c5td');
 Braintree_Configuration::publicKey('fxsnbttxk9c3pymh');
