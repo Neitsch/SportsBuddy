@@ -45,7 +45,7 @@ echo "</ul>";
 $evs = DB::getMyEvents(10);
 echo "<ul>";
 foreach($evs as $ev) {
-  echo "<li>".$m->sports->sport->findOne(array("internal" => $ev['sport']))["name"]." with ".$m->sports->users->findOne(array("id" => $ev['user_id']))['name']."</li>";
+  echo "<li style='list-style-type: none'>".$m->sports->sport->findOne(array("internal" => $ev['sport']))["name"]." with ".$m->sports->users->findOne(array("id" => $ev['user_id']))['name']."</li>";
 }
 echo "</ul>";
 //$col->update($document);
