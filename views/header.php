@@ -16,6 +16,9 @@
     <link href='http://fonts.googleapis.com/css?family=Play' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Sree+Krushnadevaraya' rel='stylesheet' type='text/css'>
     <script src="https://js.pusher.com/3.0/pusher.min.js"></script>
+    <style type="text/css" src="static/datepicker/css/bootstrap-datepicker3.standalone.min.css" ></style>
+    <style type="text/css" src="static/datepicker/css/bootstrap-datepicker.min.css" ></style>
+    <script type="text/javascript" src="static/datepicker/js/bootstrap-datepicker.min.js"></script>
 
     <title>SportsBuddy</title>
   </head>

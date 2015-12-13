@@ -16,8 +16,8 @@ $fb = new Facebook\Facebook([
 echo "Hello, ".$_SESSION['fb_user_name'];
 
 $m = new MongoClient();
+$val = $m->sports->sport->find();
 include('views/newsessionform.php');
-
 //include(__DIR__ . "/../form.php");
 //$val = $m->sports->sport->find();
 //echo "<form action='postActivity.php' method='post'><br>What? <select name='sport'>";
@@ -54,6 +54,7 @@ echo "</ul>";
 //$result = $collection->insertOne( [ 'name' => 'Hinterland', 'brewery' => 'BrewDog' ] );
 ?>
   <script type="text/javascript">
+  // Toggle Create session form -------------------
     // Enable pusher logging - don't include this in production
     Pusher.log = function(message) {
       if (window.console && window.console.log) {
