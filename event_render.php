@@ -10,7 +10,7 @@
 		$val .= $m->sports->users->findOne(array("id" => $event['user_id']))['name'];
 		$val .= " is looking for ".$event['maxpeople'];
 		$val .= $m->sports->sport->findOne(array("internal" => $event['sport']))['name'];
-  		$val .= " buddy on ";
+  		$val .= " ".plural("buddy", $event['maxpeople'])." on ";
 		$val .= '<strong>'.$event['sessiondate'].'</strong>';
   		$val .= " at ";
 		$val .= '<strong>'.$event['sessiontime'].'</strong>';
@@ -22,5 +22,9 @@
 		}
 		$val .= "<div class='clear'></div></div>";
 		return $val;
+	}
+	function plural($str, $num) {
+		if($num == 1) return $str;
+		else return $str.'s';
 	}
 ?>
