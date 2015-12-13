@@ -13,12 +13,10 @@ class Form{
         echo "</option>";
 
         for ($i = 0; $i < $elementsNumber; $i++) {
-            $optionNumber = count(self::$sports[$i]);
-            for ($x = 0; $x < $optionNumber - 1; $x++) {
-                echo "<option value=".self::$sports[$i][$x +1].">";
-                echo self::$sports[$i][$x +1];
-                echo "</option>";
-            }
+            $pair = self::$sports[$i];
+            echo "<option value=".$pair[0].">";
+            echo $pair[1];
+            echo "</option>";
         }
     }
 

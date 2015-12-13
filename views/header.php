@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- Date picker-->
+    <link rel="stylesheet" href="../datepicker/css/datepicker.css">
+    <link rel="stylesheet" href="../datepicker/js/bootstrap-datepicker.js">
+
     <meta charset="utf-8">
     <!-- Bootstrap -->
     <link href="static/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
@@ -14,8 +18,10 @@
     <link href='http://fonts.googleapis.com/css?family=Sree+Krushnadevaraya' rel='stylesheet' type='text/css'>
 
     <title>SportsBuddy</title>
+
   </head>
   <body>
+
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
