@@ -87,7 +87,7 @@ Create Session
           </div>
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-8">
-              <button id="submitnewsessionbtn" type="submit" class="btn btn-default">Submit</button>
+              <button id="submitnewsessionbtn" type="submit" class="btn btn-default">Create</button>
             </div>
           </div>
         </form>

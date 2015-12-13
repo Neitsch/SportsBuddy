@@ -1,7 +1,16 @@
 <?php
   session_start();
   require_once __DIR__ . '/vendor/autoload.php';
-  $id = $_GET['id'];
+  $nonce = $_POST["payment_method_nonce"];
+Braintree_Configuration::environment('sandbox');
+Braintree_Configuration::merchantId('jq4kgwhnfcg7c5td');
+Braintree_Configuration::publicKey('fxsnbttxk9c3pymh');
+Braintree_Configuration::privateKey('18a64a6ac4df1014532f183cbe374b7d');
+$result = Braintree_Transaction::sale([
+  'amount' => '10.00',
+  'paymentMethodNonce' => $nonce
+]);
+  $id = $_POST['id'];
   $m = new MongoClient();
   $user = $m->sports->users->findOne(array("id" => $_SESSION['fb_user_id']));
   $ev = $m->sports->events->findOne(array("_id" => new MongoId($id)));
