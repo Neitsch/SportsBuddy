@@ -28,7 +28,7 @@ echo "<br>When?";
 echo "<br><input type='submit'>";
 echo "</form>";
 
-$val = $m->sports->events->find();
+$val = $m->sports->events->find(array("_id" => array('$nin' => $m->sports->users->findOne(array("id" => $_SESSION['fb_user_id']))['events'])));
 echo "<ul id='events'>";
 foreach($val as $doc) {
   echo render_event($doc);
