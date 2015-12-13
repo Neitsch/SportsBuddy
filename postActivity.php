@@ -18,4 +18,5 @@ $pusher = new Pusher(
 $mes = render_event($_POST);
 $pusher->trigger('events_channel', 'my_event', $mes);
 echo 'Created event';
+header("Location: http://".$_SERVER['SERVER_NAME']."/SportsBuddy/viewevents.php");
 ?>
