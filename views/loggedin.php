@@ -19,14 +19,7 @@ echo "Hello, ".$response->getGraphUser()['name'];
 
 $m = new MongoClient();
 $val = $m->sports->sport->find();
-echo "<form action='postActivity.php' method='post'><br>What? <select name='sport'>";
-foreach($val as $doc) {
-  echo "<option value=".$doc['internal'].">".$doc['name']."</option>";
-}
-echo "</select>";
-echo "<br>When?";
-echo "<br><input type='submit'>";
-echo "</form>";
+include('views/newsessionform.php');
 
 $val = $m->sports->events->find(array("_id" => array('$nin' => $m->sports->users->findOne(array("id" => $_SESSION['fb_user_id']))['events'])));
 echo "<ul id='events'>";
@@ -35,6 +28,14 @@ foreach($val as $doc) {
   //echo "<li>".$doc['sport'];
   //echo " by ".$m->sports->users->findOne(array("id" => $doc['user_id']))['name'];
   //echo "</li>";
+}
+echo "</ul>";
+
+$user = $m->sports->users->findOne(array("id" => $_SESSION['fb_user_id']));
+$evs = $m->sports->events->find(array("_id" => array('$in' => $user['events'])));
+echo "<ul>";
+foreach($evs as $ev) {
+  echo "<li>".$m->sports->sport->findOne(array("internal" => $ev['sport']))["name"]." with ".$m->sports->users->findOne(array("id" => $ev['user_id']))['name']."</li>";
 }
 echo "</ul>";
 //$col->update($document);
