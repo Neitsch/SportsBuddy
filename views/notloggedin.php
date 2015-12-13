@@ -9,12 +9,12 @@
       Some recent events and sessions:
       <div class="teaser-list-events">
       <?php
+	require_once __DIR__ . '/../event_render.php';
       $m = new MongoClient();
-        $val = $m->sports->events->find();
-        foreach($val as $doc) {
-          echo "<div>".$doc['sport'];
-          echo " by ".$m->sports->users->findOne(array("id" => $doc['user_id']))['name'];
-          echo "</div>";
+        $val = $m->sports->events->find()->limit(3);
+	while($val->hasNext()) {
+		$val->next();
+		echo render_event($val->current());
         }
       ?>
     </div>
