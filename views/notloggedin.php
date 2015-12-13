@@ -38,7 +38,7 @@
       ?>
     </div>
   </div>
-<div class="parent-elemntsofsb">
+<div class="parent-elemntsofsb" >
   <div class="elemntsofsb-wrapper">
   <div class="elemntsofsb">
     <img src="static/img/event.png" alt="" />
