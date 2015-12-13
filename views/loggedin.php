@@ -45,7 +45,7 @@ echo "</ul>";
 
 //$result = $collection->insertOne( [ 'name' => 'Hinterland', 'brewery' => 'BrewDog' ] );
 ?>
-  <script>
+  <script type="text/javascript">
     // Enable pusher logging - don't include this in production
     Pusher.log = function(message) {
       if (window.console && window.console.log) {
