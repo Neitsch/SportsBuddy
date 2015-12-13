@@ -28,7 +28,7 @@ echo "Hello, ".$response->getGraphUser()['name'];
 //        ->save();
 
 $m = new MongoClient();
-$document = array( "id" => $response->getGraphUser()['id'], "name" => $response->getGraphUser()['name'] );
+$document = array( "id" => $response->getGraphUser()['id'], "name" => $response->getGraphUser()['name'], "events" => array());
 if(NULL == $m->sports->users->findOne(array("id" => $response->getGraphUser()['id']))) {
 	$m->sports->users->update(array("id" => $response->getGraphUser()['id']), $document, array("upsert" => true));
 }

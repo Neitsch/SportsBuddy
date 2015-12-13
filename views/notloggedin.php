@@ -82,7 +82,8 @@
   });
   var channel = pusher.subscribe('events_channel');
   channel.bind('my_event', function(data) {
-$('#home-events').append(data);
+    $('#home-events').prepend(data);
+    $('#home-events .individual-events').last().remove();
   });
 </script>
 <?php
