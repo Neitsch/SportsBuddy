@@ -95,7 +95,6 @@ a.facebook-loginbtn:hover {
   background-color: transparent;
 }
 .individual-events {
-  //border: 1px solid #ccc;
   padding: 5px;
   width: 400px;
   text-align: left;
@@ -122,4 +121,11 @@ a.viewmore {
 }
 footer.site-footer {
     background-color: #FFF;
+    height: 100%;
+    padding: 40px;
+    margin-top: 40px;
+}
+footer img {
+	border: 0;
+	width: 150px;
 }
