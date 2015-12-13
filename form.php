@@ -26,8 +26,9 @@ include("classes/Clock.php");
                     </div>
                     <div class="form-group">
                         <label for="sports">Choose a sports:</label>
+
                         <select id="sports" class="form-control" name="sports">
-                          <?php Form::selection();?>
+                            <?php Form::selection();?>
                         </select>
                     </div>
                     <div class="form-group">
