@@ -21,7 +21,7 @@ $result = Braintree_Transaction::sale([
   $Message->originator = 'MessageBird';
   $Message->recipients = array($ev['telephone']);
 
-  $Message->body = $user['name'].' signed up to do '.$sport['name'].'!\n Your SportsBuddies';
+  $Message->body = $user['name'].' signed up to do '.$sport['name']."!\n Your SportsBuddies";
   echo $Message->body;
   $MessageBird->messages->create($Message);
   header("Location: http://".$_SERVER['SERVER_NAME']."/SportsBuddy/viewevents.php");

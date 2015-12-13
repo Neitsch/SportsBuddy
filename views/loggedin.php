@@ -1,6 +1,7 @@
 <?php
   include('header.php');
 ?>
+<center>
 <?php
 require_once 'event_render.php';
 ini_set('display_errors', 1);
@@ -53,6 +54,7 @@ echo "</ul>";
 
 //$result = $collection->insertOne( [ 'name' => 'Hinterland', 'brewery' => 'BrewDog' ] );
 ?>
+</center>
   <script type="text/javascript">
 	$( document ).ready(function() {
 	initPusher('#events', 30);
