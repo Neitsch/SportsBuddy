@@ -16,11 +16,11 @@ $fb = new Facebook\Facebook([
 echo "Hello, ".$_SESSION['fb_user_name'];
 
 $m = new MongoClient();
-<<<<<<< HEAD
+
 $val = $m->sports->sport->find();
 include('views/newsessionform.php');
-=======
-include(__DIR__ . "/../form.php");
+
+//include(__DIR__ . "/../form.php");
 //$val = $m->sports->sport->find();
 //echo "<form action='postActivity.php' method='post'><br>What? <select name='sport'>";
 //foreach($val as $doc) {
@@ -30,7 +30,7 @@ include(__DIR__ . "/../form.php");
 //echo "<br>When?";
 //echo "<br><input type='submit'>";
 //echo "</form>";
->>>>>>> af15233b5bfa0549a4a369261e4b1bcb03b413ce
+
 
 $val = $m->sports->events->find(array("_id" => array('$nin' => $m->sports->users->findOne(array("id" => $_SESSION['fb_user_id']))['events'])));
 echo "<ul id='events'>";
