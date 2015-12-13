@@ -120,3 +120,6 @@ a.viewmore {
   float: left;
   width: 50px;
 }
+footer.site-footer {
+    background-color: #FFF;
+}
