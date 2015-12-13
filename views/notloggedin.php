@@ -69,23 +69,9 @@
   <div>Organise your events easier and recruit new players easily.</div>
 </center>
 <script type="text/javascript">
-  // Enable pusher logging - don't include this in production
-  Pusher.log = function(message) {
-    if (window.console && window.console.log) {
-      window.console.log(message);
-    }
-  };
-  var pusher = new Pusher('b227f5df488b51be2735', {
-    encrypted: true
-  });
-  var channel = pusher.subscribe('events_channel');
-  channel.bind('my_event', function(data) {
-    $('#home-events').prepend(data);
-    $('#home-events .individual-events').first().show(function() {
-      $('#home-events .individual-events').last().hide(function() {$('#home-events .individual-events').last().remove();});
+        $( document ).ready(function() {
+        initPusher('#home-events', 3);
 });
-  });
-    $('#home-events .individual-events').show();
 </script>
 <?php
   include('footer.php');

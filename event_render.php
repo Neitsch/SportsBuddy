@@ -2,7 +2,8 @@
 	function render_event ($event) {
 		$m = new MongoClient();
 		$val = "<div class='individual-events' style='color:black'>";
-                if($event['user_id'] != $_SESSION['fb_user_id']) {
+                
+		if(isset($_SESSION['fb_user_id']) && $event['user_id'] != $_SESSION['fb_user_id']) {
 		  $val .= "<a href='payment.php?id=".((string)$event['_id'])."'>";
 		}
 		$val .= "<img class='img-rounded' src=\"http://graph.facebook.com/v2.5/".$event['user_id']."/picture\"></img>";
@@ -15,7 +16,7 @@
 		$val .= $event['sessiontime'];
 		$val .= " for ";
 		$val .= $event['eventfee']."£";
-		if($event['user_id'] != $_SESSION['fb_user_id']) {
+		if(isset($_SESSION['fb_user_id']) && $event['user_id'] != $_SESSION['fb_user_id']) {
 			$val .= "</a>";
 		}
 		$val .= "</div>";
