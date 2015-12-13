@@ -19,7 +19,7 @@ include("classes/Clock.php");
         <div class="row">
             <div class="col-xs-12">
                <h2>FORM</h2>
-                <form action="#"  method="POST" action="postActivity.php">
+                <form method="POST" action="postActivity.php">
                     <div class="form-group">
                         <label for="venue">Venue</label>
                         <input type="text"class="form-control" name="venue" placeholder="The location" id="venue">
@@ -27,7 +27,7 @@ include("classes/Clock.php");
                     <div class="form-group">
                         <label for="sports">Choose a sports:</label>
 
-                        <select id="sports" class="form-control" name="sports">
+                        <select id="sport" class="form-control" name="sports">
                             <?php Form::selection();?>
                         </select>
                     </div>
