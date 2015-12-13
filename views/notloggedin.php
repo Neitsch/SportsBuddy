@@ -83,8 +83,11 @@
   var channel = pusher.subscribe('events_channel');
   channel.bind('my_event', function(data) {
     $('#home-events').prepend(data);
-    $('#home-events .individual-events').last().remove();
+    $('#home-events .individual-events').first().show(function() {
+      $('#home-events .individual-events').last().hide(function() {$('#home-events .individual-events').last().remove();});
+});
   });
+    $('#home-events .individual-events').show();
 </script>
 <?php
   include('footer.php');
