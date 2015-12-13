@@ -82,6 +82,17 @@ Create Session
           </div>
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-8">
+              Enter your mobile phone number with the international code if you wish to receive SMS reminders.
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="telephone" class="col-sm-2 control-label">Tel</label>
+            <div class="col-sm-8">
+            <input type="text" id="telephone" class="form-control" name="telephone" value="+44077998876">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-8">
               If this is an event and involves more than two people then please identify the maximum number of people and whether your event has a fee. Otherwise you can leave them blank.
             </div>
           </div>

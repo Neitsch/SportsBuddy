@@ -54,26 +54,9 @@ echo "</ul>";
 //$result = $collection->insertOne( [ 'name' => 'Hinterland', 'brewery' => 'BrewDog' ] );
 ?>
   <script type="text/javascript">
-  // Toggle Create session form -------------------
-    // Enable pusher logging - don't include this in production
-    Pusher.log = function(message) {
-      if (window.console && window.console.log) {
-        window.console.log(message);
-      }
-    };
-
-    var pusher = new Pusher('b227f5df488b51be2735', {
-      encrypted: true
-    });
-    var channel = pusher.subscribe('events_channel');
-  var channel = pusher.subscribe('events_channel');
-  channel.bind('my_event', function(data) {
-    $('#events').prepend(data);
-    $('#events .individual-events').first().show(function() {
-      $('#events .individual-events').last().hide(function() {$('#home-events .individual-events').last().remove();});
+	$( document ).ready(function() {
+	initPusher('#events', 30);
 });
-  });
-    $('#events .individual-events').show();
   </script>
 <?php
   include('footer.php');
