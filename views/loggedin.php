@@ -1,14 +1,12 @@
-<html><head>
-
-  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-</head>
-<body>
+<?php
+  include('header.php');
+?>
 <?php
 require_once 'event_render.php';
 ini_set('display_errors', 1);
 session_start();
 require 'vendor/autoload.php'; // include Composer goodies
-require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 $fb = new Facebook\Facebook([
   'app_id' => '1666203576993752',
   'app_secret' => '08bd94f8c9633e0c13d93b1db60706f5',
@@ -63,5 +61,6 @@ echo "</ul>";
 	$('#events').append(data);
     });
   </script>
-</body>
-</html>
+<?php
+  include('footer.php');
+?>
