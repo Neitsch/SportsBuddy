@@ -8,18 +8,18 @@
     <div class="banner-content">
       <div class="banner-content-header">Find a sports bud and get playing</div>
       Some recent events and sessions:
+      <div id="home-events">
       <?php
 	require_once __DIR__ . '/../event_render.php';
       $m = new MongoClient();
-<<<<<<< HEAD
-      $val = $m->sports->events->find();
-      echo "<div id='home-events'>";
-      foreach($val as $doc) {
-        echo render_event($doc);
-      }
-      echo "</div>";
-       ?>
-       <a class="viewmore" href="viewevents.php">view more &raquo;</a><br />
+        $val = $m->sports->events->find()->limit(3);
+	      while($val->hasNext()) {
+		      $val->next();
+		      echo render_event($val->current());
+        }
+      ?>
+    </div>
+    <a class="viewmore" href="viewevents.php">view more &raquo;</a><br />
       <?php
         session_start();
         require_once __DIR__ . '/../vendor/autoload.php';

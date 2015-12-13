@@ -91,6 +91,9 @@ a.facebook-loginbtn:hover {
 #home-events .individual-events a {
   color:#fff;
 }
+#home-events .individual-events img {
+  padding-right: 4px;
+}
 a.viewmore {
   color:#ccc;
   text-decoration:underline;
