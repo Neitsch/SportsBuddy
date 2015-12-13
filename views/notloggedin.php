@@ -62,8 +62,8 @@
 </div>
 <div class="container">
 <center style="padding-bottom:20px;">
-<h1 style="margin:40px 0 30px 0">What is SportsBuddy?</h1>
-<h4>SportsBuddy allows you to connect with people whom share the same passion as you for sports.</h4>
+  <h1 style="margin:40px 0 30px 0">What is SportsBuddy?</h1>
+  <h4>SportsBuddy allows you to connect with people whom share the same passion as you for sports.</h4>
   <div>Connect with other active people on your campus or neighbourhood.</div>
   <div>Help others achieve their goals and overcome barriers.</div>
   <div>Learn new sports in a new way and fun way.</div>

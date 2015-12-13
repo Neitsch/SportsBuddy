@@ -25,6 +25,16 @@ echo "<form action='postActivity.php' method='post'><br>What? <select name='spor
 foreach($val as $doc) {
   echo "<option value=".$doc['internal'].">".$doc['name']."</option>";
 }
+?>
+Venue: <select class="" name="">
+  <option value="option">option</option>
+</select><br />
+Skill Requirements: <select class="" name="">
+  <option value="option">option</option>
+</select><br />
+Date & Time:
+Description <textarea name="description" rows="8" cols="40"></textarea>
+<?php
 echo "</select>";
 echo "<br>When?";
 echo "<br><input type='submit'>";
