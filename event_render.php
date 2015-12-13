@@ -14,7 +14,7 @@
   		$val .= " at ";
 		$val .= $event['sessiontime'];
 		$val .= " for ";
-		$val .= $event['eventfee'];
+		$val .= $event['eventfee']."£";
 		if($event['user_id'] != $_SESSION['fb_user_id']) {
 			$val .= "</a>";
 		}
