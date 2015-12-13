@@ -38,7 +38,7 @@ if (! isset($accessToken)) {
 }
 
 $m = new MongoClient();
-$response = $fb->get('/me?fields=id,name', $_SESSION['fb_access_token']);
+$response = $fb->get('/me?fields=id,name', $accessToken);
 $_SESSION['fb_user_id'] = $response->getGraphUser()['id'];
 $_SESSION['fb_user_name'] = $response->getGraphUser()['name'];
 $m = new MongoClient();
