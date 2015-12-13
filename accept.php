@@ -6,7 +6,7 @@
   $user = $m->sports->users->findOne(array("id" => $_SESSION['fb_user_id']));
   $ev = $m->sports->events->findOne(array("_id" => new MongoId($id)));
   $sport = $m->sports->sport->findOne(array("internal" => $ev['sport']));
-  $m->sports->users->update(array("_id" => $user['_id']), array('$push' => array("events" => $id)));
+  $m->sports->users->update(array("_id" => $user['_id']), array('$addToSet' => array("events" => new MongoId($id))));
   $MessageBird = new \MessageBird\Client('test_FwajaLoWbqkp5ncnbt9sfBLH6');
   $Message = new \MessageBird\Objects\Message();
   $Message->originator = 'MessageBird';
